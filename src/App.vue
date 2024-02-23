@@ -1,11 +1,12 @@
 <script setup>
+import Navigation from "./components/Navigation.vue";
 </script>
 
 <template>
   <main class="font-kumbh-sans">
-      <router-view />
+    <Navigation />
+    <router-view />
   </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

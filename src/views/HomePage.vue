@@ -1,6 +1,6 @@
 <!-- src/views/Home.vue -->
 <template>
   <div>
-    <h1 class="text-black">Home Page</h1>
+    <h1 class="text-black"></h1>
   </div>
 </template>
