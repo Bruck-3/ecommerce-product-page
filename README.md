@@ -37,7 +37,7 @@ In the future, I aim to explore more advanced features and optimize performance.
 
 ## Author
 - Website - [Bruck Demssie](https://bruck-portfolio.vercel.app/)
-- Frontend Mentor -[@Bruck]-2 (@https://www.frontendmentor.io/profile/Bruck-3)
+- Frontend Mentor -[@Bruck-3] (@https://www.frontendmentor.io/profile/Bruck-3)
 
 ## Acknowledgments
 I'd like to thank Frontend Mentor for providing this challenge, which helped me enhance my skills. Additionally, I'm grateful for the support and resources provided by the Vue.js and Tailwind CSS communities.
