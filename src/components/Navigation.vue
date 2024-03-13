@@ -1,4 +1,19 @@
 <!-- src/views/Home.vue -->
+<script>
+import IconCart from "../assets/IconCart.vue";
+import { mapGetters, mapActions } from "vuex";
+export default {
+  components: {
+    IconCart,
+  },
+  methods: {
+    ...mapActions(['removeFromCart'])
+  },
+    computed: {
+    ...mapGetters(["getRealCart"]),
+  },
+};
+</script>
 <script setup>
 import { ref } from "vue";
 import {
@@ -24,9 +39,6 @@ const toggleMobileNav = () => {
 const closeMobileNav = () => {
   isMobileNavOpen.value = false;
 };
-let cart = ref({
-  
-})
 </script>
 <template>
   <nav class="bg-white border-gray-200">
@@ -51,7 +63,7 @@ let cart = ref({
               :key="index"
             >
               <p
-                class="hover:border-0 hover:border-spacing-2 hover:border-b-[5px] hover:border-primaryOrange hover:border-solid transitio py-[72px]"
+                class="hover:border-0 hover:border-spacing-2 hover:border-b-[5px] hover:border-primaryOrange hover:border-solid transitio py-[40px]"
               >
                 {{ nav }}
               </p>
@@ -62,38 +74,57 @@ let cart = ref({
       <div
         class="flex w-[100px] lg:w-[100px] items-center justify-between relative"
       >
-        <img
-          src="../assets/icon-cart.svg"
-          class="h-[20px] w-[20px] cursor-pointer"
-          alt=""
+        <IconCart
+          class="cursor-pointer"
           @click="setIsOpen(true)"
-        />
+          :cart="getRealCart"
+        ></IconCart>
         <img
           src="../assets/image-avatar.png"
           class="h-[40px] w-[40px] rounded-[50%] hover:border-solid hover:border-[2px] hover:border-primaryOrange cursor-pointer"
           alt=""
         />
         <Dialog
-          class="font-kumbh-sans shadow-md w-[350px] xl:w-[375px] absolute top-[100px] right-[10px] lg:right-[150px] bg-white rounded-[10px] min-h-[180px]"
+          class="font-kumbh-sans shadow-md w-[350px] xl:w-[375px] absolute top-[100px] right-[10px] lg:right-[70px] bg-white rounded-[10px] min-h-[180px]"
           :open="isOpen"
           @close="setIsOpen"
         >
           <DialogPanel>
             <DialogTitle class="text-[16px] px-[20px] pt-2">Cart</DialogTitle>
             <hr class="h-px my-4 bg-gray-200 border-0" />
-            <div v-if="Object.keys(cart).length > 0" class="px-[20px]">
-              <DialogDescription class="flex">
-                <img src="" alt="" loading="lazy">
+            <div v-if="getRealCart > 0" class="px-[20px]">
+              <DialogDescription class="flex gap-x-6">
+                <img
+                  src="../assets/shoes/image-product-1.jpg"
+                  alt=""
+                  loading="lazy"
+                  class="w-[50px] h-[50px] rounded"
+                />
+                <div class="mr-[15px]">
+                  <p class="my-1 text-grayishBlue">
+                    Fall Limited Edition Sneakers
+                  </p>
+                  <p class="my-0 text-grayishBlue">
+                    $125.00 x {{ getRealCart }}
+                    <span class="font-bold text-black">${{ getRealCart*125 }}.00</span>
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <img @click="removeFromCart" class="cursor-pointer" src="../assets/icon-delete.svg" alt="" />
+                </div>
               </DialogDescription>
+              <input type="text" class="hidden" />
               <button
-             
                 @click="setIsOpen(false)"
-                class="my-2 w-full h-[46px] rounded-[10px] border-0 bg-primaryOrange text-white font-bold text-14px"
+                class="my-2 w-full h-[46px] rounded-[10px] border-0 bg-primaryOrange text-white font-bold text-14px outline-none cursor-pointer"
               >
                 Checkout
               </button>
             </div>
-             <div v-else class="py-[15px] flex items-center justify-center text-grayishBlue font-bold text-[16px]">
+            <div
+              v-else
+              class="py-[15px] flex items-center justify-center text-grayishBlue font-bold text-[16px]"
+            >
               <DialogDescription class="">
                 Your cart is empty.
               </DialogDescription>
@@ -102,7 +133,7 @@ let cart = ref({
         </Dialog>
       </div>
     </div>
-    <hr class="h-px my-8 bg-gray-200 border-0 hidden lg:flex" />
+    <hr class="h-px my-0 bg-gray-200 border-0 hidden lg:flex" />
     <div
       v-show="isMobileNavOpen"
       class="fixed top-0 left-0 z-30 w-full h-full bg-black bg-opacity-50"
