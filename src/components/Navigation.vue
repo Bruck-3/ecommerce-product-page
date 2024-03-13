@@ -63,7 +63,7 @@ const closeMobileNav = () => {
               :key="index"
             >
               <p
-                class="hover:border-0 hover:border-spacing-2 hover:border-b-[5px] hover:border-primaryOrange hover:border-solid transitio py-[40px]"
+                class="hover:border-0 hover:border-spacing-2 hover:border-b-[5px] hover:border-primaryOrange hover:border-solid transition py-[40px]"
               >
                 {{ nav }}
               </p>
