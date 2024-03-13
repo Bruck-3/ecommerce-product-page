@@ -1,7 +1,43 @@
-# Vue 3 + Vite
+# E-commerce Product Page
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is a solution to the E-commerce product page challenge on Frontend Mentor. It is built using Vue 3, Tailwind CSS, Vuex store, and Vite.
 
-## Recommended IDE Setup
+## Overview
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### The Challenge
+
+The challenge required implementing an E-commerce product page with specific features:
+- View optimal layout based on device screen size
+- Hover states for interactive elements
+- Lightbox gallery for large product images
+- Switching large product images by clicking on small thumbnails
+- Adding items to the cart
+- Viewing and removing items from the cart
+
+### Built With
+- Vue 3
+- Tailwind CSS
+- Vuex store
+- Vite
+
+## How to Run
+
+To run the project:
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Start the development server with `npm run dev`.
+4. Open your browser and navigate to ` http://localhost:5173/`.
+
+## Continued Development
+In the future, I aim to explore more advanced features and optimize performance.
+
+### Links
+- Solution URL: [Link](https://github.com/Bruck-3/ecommerce-product-page)
+- Live Site URL: [Link](https://ecommerce-product-page-bruck.vercel.app/)
+
+## Author
+- Website - [Bruck Demssie](https://bruck-portfolio.vercel.app/)
+- Frontend Mentor -[@Bruck]-2 (@https://www.frontendmentor.io/profile/Bruck-3)
+
+## Acknowledgments
+I'd like to thank Frontend Mentor for providing this challenge, which helped me enhance my skills. Additionally, I'm grateful for the support and resources provided by the Vue.js and Tailwind CSS communities.
